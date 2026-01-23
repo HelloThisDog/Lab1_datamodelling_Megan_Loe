@@ -1,3 +1,4 @@
+-- table space
 CREATE TABLE IF NOT EXISTS School(
     School_name VARCHAR NOT NULL,
     School_location VARCHAR NOT NULL,
@@ -67,7 +68,8 @@ CREATE TABLE IF NOT EXISTS Consultant_x_Course(
     Combined_id INTEGER PRIMARY KEY
 );
 
-INSERT INTO
+-- insertion hell
+INSERT INTO --program data
     Program(Program_name, Program_id, Course_amount, School_id)
     VALUES
     ('Cognitive Patterns & Decision Making', 214, 5, 100),
@@ -76,7 +78,7 @@ INSERT INTO
     ('Strategic Communication Practices', 322, 5, 200),
     ('Interdisciplinary Problem Solving Seminar', 410, 5, 100);
 
-INSERT INTO
+INSERT INTO --course data
     Course(Course_name, Course_id, Course_points, Seperate_course, Program_id)
     VALUES
     ('Foundations of Human Judgment', 201, 30, 'Y', 214),
@@ -105,7 +107,7 @@ INSERT INTO
     ('Applied Policy and Innovation Workshop', 405, 30, 'N', 410),
     ('Ethics, Technology, and Society Seminar', 420, 20, 'Y', 410);
 
-INSERT INTO 
+INSERT INTO -- company data
     Consultant_Companies(Company_name, Company_adress, Company_id, Company_tax)
     VALUES
     ('Teachtant AB', 'Fallback street 69', 567, 100),
@@ -114,7 +116,7 @@ INSERT INTO
     ('Compacher AB', 'Fine lane 6', 890, 200),
     ('Teacher Consult AB', 'Teaching street 20', 123, 150);
 
-INSERT INTO
+INSERT INTO --consultant data
     Consultant(First_name, Last_name, Consultant_id, Email, Hire, Hour_rate, Company_id)
     VALUES
     ('Maya', 'Reynolds', 001, 'maya.reynolds@educonsultpro.com', 'Y', 68, 678),
@@ -128,7 +130,7 @@ INSERT INTO
     ('Trevor', 'ONeill', 009, 'trevor.oneill@educonsultpro.com', 'Y', 78, 678),
     ('Naomi', 'Park', 010, 'naomi.park@educonsultpro.com', 'N', 57, 789);
 
-INSERT INTO
+INSERT INTO -- class data
     Class(Class_id, Class_name, Student_amount, Utbildningsledare_id, Program_id)
     VALUES
     (023, 'CPDM23', 5, 001, 214),
@@ -142,7 +144,7 @@ INSERT INTO
     (025, 'IPSS23', 5, 005, 410),
     (035, 'IPSS25', 5, 005, 410);
 
-INSERT INTO
+INSERT INTO -- student data
     Student(First_name, Last_name, Student_id, Email)
     VALUES
     ('Alex', 'Morgan', 001, 'alex.morgan001@example.test'),
@@ -196,7 +198,7 @@ INSERT INTO
     ('Jack', 'Barnes', 049, 'jack.barnes049@example.test'),
     ('Ava', 'Sullivan', 050, 'ava.sullivan050@example.test');
 
-INSERT INTO
+INSERT INTO -- utbildningsledare data
     Utbildningsledare(First_name, Last_name, Utbildningsledare_id, Email, School_id)
     VALUES
     ('Caleb', 'Monroe', 001, 'caleb.monroe051@example.test', 100),
@@ -205,13 +207,13 @@ INSERT INTO
     ('Priya', 'Desai', 004, 'priya.desai054@example.test', 200),
     ('Marcus', 'ONeill', 005, 'marcus.oneill055@example.test', 100);
 
-INSERT INTO 
+INSERT INTO -- school data
     School(School_name, School_location, School_id)
     VALUES
     ('YrkesSkola', 'Stockholm', 100),
     ('YrkesSkola', 'Göteborg', 200);
 
-INSERT INTO 
+INSERT INTO -- insert the rest of join here
     Consultant_x_Course(Consultant_id, Course_id, Combined_id)
     VALUES
     (001, 201, 001201),
@@ -240,3 +242,8 @@ INSERT INTO
     (005, 405, 005405),
     (005, 420, 005420);
 
+SELECT * FROM Course
+
+SELECT
+    AVG (Hour_rate) AS avg_rate
+FROM Consultant;

@@ -242,7 +242,7 @@ INSERT INTO -- insert the rest of join here
     (005, 405, 005405),
     (005, 420, 005420);
 
-SELECT * FROM Course
+SELECT * FROM Course;
 
 SELECT
     AVG (Hour_rate) AS avg_rate
